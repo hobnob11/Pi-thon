@@ -1,13 +1,26 @@
 from flask import Flask, render_template
-
 app = Flask(__name__,template_folder="www")
+
+State = False
+
+def SwitchState(Stateu):
+    global State
+    State = Stateu
 
 @app.route('/')
 def index():
     return render_template("index.html")
-@app.route('/Cake')
+
+@app.route('/Output')
 def Output():
-    return "Output goes here"
+    global State
+    return str(State)
+
+@app.route('/Input/<Statuu>')
+def Input(Statuu):
+    global State
+    SwitchState(Statuu)
+    return str(State) + "   " + str(Statuu)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0',port=8000)
+    app.run(debug=True, host='0.0.0.0',port=80)
