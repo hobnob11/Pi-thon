@@ -9,10 +9,10 @@
     function SwitchState(state)
     {
         document.getElementById("output").src = "/Input/" + state;
+        var display = document.getElementById("display");
+        display.src = display.src; //update display
     }
 </script>
-
-
 <body>
     <h1>HI :D</h1>
     <h1>current led status:</h1>
