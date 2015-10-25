@@ -5,10 +5,18 @@
     <meta charset="utf-8" />
     <title></title>
 </head>
+<script type="text/javascript">
+    function SwitchState(state)
+    {
+        document.getElementById("display").src = "/Input/" + state;
+    }
+</script>
+
+
 <body>
     <h1>HI :D</h1>
     <h1>current led status:</h1>
     <iframe name="display" src="/Output",width="50",height="50"></iframe>
-    <button type="button" onclick="document.getElementById('display').src='/Input/1'">On</button>
+    <button type="button" onclick="SwitchState(1)">On</button>
 </body>
 </html>
