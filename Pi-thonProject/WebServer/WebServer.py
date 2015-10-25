@@ -24,7 +24,10 @@ def Output():
 @app.route('/Input/<Statuu>')
 def Input(Statuu):
     global State
-    SwitchState(Statuu)
+    if(Statuu=="true"):
+        SwitchState(True)
+    if(Statuu=="false"):
+        SwitchState(False)
     return str(State) + "   " + str(Statuu)
 
 if __name__ == '__main__':
