@@ -2,6 +2,7 @@
 import RPi.GPIO as GPIO
 
 app = Flask(__name__,template_folder="www")
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(5,GPIO.OUT)
 
