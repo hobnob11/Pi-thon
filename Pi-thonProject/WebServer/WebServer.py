@@ -14,7 +14,7 @@ def index():
 @app.route('/Output')
 def Output():
     global State
-    return str(State)
+    return str(State) + " :D"
 
 @app.route('/Input/<Statuu>')
 def Input(Statuu):
