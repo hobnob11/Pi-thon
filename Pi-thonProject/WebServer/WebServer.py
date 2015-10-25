@@ -1,4 +1,4 @@
-﻿from flask import Flask, render_template
+﻿from flask import Flask, render_template, request
 import RPi.GPIO as GPIO
 
 app = Flask(__name__,template_folder="www")
@@ -14,6 +14,7 @@ def SwitchState(Stateu):
 
 @app.route('/')
 def index():
+    print(request.remote_addr + " TIS ME!")
     return render_template("index.html")
 
 @app.route('/Output')
