@@ -14,8 +14,11 @@ def SwitchState(Stateu):
 
 @app.route('/')
 def index():
-    print(request.remote_addr + " TIS ME!")
-    return render_template("index.html")
+    #if the incomming request is on the local network
+    if(str(request.remote_addr)[:10] == "192.168.1."):
+        return render_template("admin.html")
+    else:
+        return render_template("index.html")
 
 @app.route('/Output')
 def Output():
