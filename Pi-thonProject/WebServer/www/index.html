@@ -8,7 +8,7 @@
 <body>
     <h1>HI :D</h1>
     <h1>current led status:</h1>
-    <iframe src="/Output",width="50",height="50"></iframe>
-    <button type="button" formaction="/Input/">On</button>
+    <iframe name="display" src="/Output",width="50",height="50"></iframe>
+    <button type="button" onclick="document.getElementById('display').src='/Input/1'">On</button>
 </body>
 </html>
