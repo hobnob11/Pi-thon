@@ -1,11 +1,15 @@
-from flask import Flask, render_template
+﻿from flask import Flask, render_template
 app = Flask(__name__,template_folder="www")
+import RPI.GPIO as GPIO
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(5,GPIO.OUT)
 
 State = False
 
 def SwitchState(Stateu):
     global State
     State = Stateu
+    GPIO.output(5,State)
 
 @app.route('/')
 def index():
