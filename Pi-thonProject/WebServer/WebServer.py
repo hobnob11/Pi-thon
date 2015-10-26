@@ -39,7 +39,7 @@ def ADMIN(NewID):
             Allowed.remove(NewID)
         else:
             Allowed.append(NewID)
-        return render_template("admin.html")
+        return render_template("admin.html",Allowed)
 
 @app.route('/Output')
 def Output():
