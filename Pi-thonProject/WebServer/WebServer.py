@@ -7,11 +7,23 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(5,GPIO.OUT)
 
 State = 0
+Allowed = []
 
-def SwitchState(Stateu):
+def SwitchState(A):
     global State
-    State = Stateu
+    State = A
     GPIO.output(5,State)
+
+def CheckIfAllowed(A):
+    global Allowed
+    try:
+        index = Allowed.index(A)
+    except ValueError:
+        return False
+    else:
+        return True
+
+
 
 @app.route('/')
 def index():
@@ -26,12 +38,13 @@ def Output():
     global State
     return str(State) + " :D"
 
-@app.route('/Input/<Statuu>')
-def Input(Statuu):
+@app.route('/Input/<Id>/<Input>')
+def Input(Id,Input):
     global State
-    if(Statuu=="1"):
+    print(str(CheckIfAllowed(Id)))
+    if(Input=="1"):
         SwitchState(1)
-    if(Statuu=="0"):
+    if(Input=="0"):
         SwitchState(0)
     return str(State) + "   " + str(Statuu)
 
