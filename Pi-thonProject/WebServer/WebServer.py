@@ -7,7 +7,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(5,GPIO.OUT)
 
 State = 0
-Allowed = []
+Allowed = [0]
 
 def SwitchState(A):
     global State
