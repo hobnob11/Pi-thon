@@ -26,7 +26,7 @@ def CheckIfAllowed(A):
 def CheckIfRequested(A):
     global Requested
     try:
-        index = Requested.index(A)
+        index = Requests.index(A)
     except ValueError:
         return False
     else:
