@@ -19,7 +19,7 @@ def CheckIfAllowed(A):
     try:
         index = Allowed.index(A)
     except ValueError:
-        return False
+        return -1
     else:
         return index
 
@@ -35,7 +35,7 @@ def index():
 def ADMIN(NewID):
     global Allowed
     if(str(request.remote_addr)[:10] == "192.168.1."):
-        if(CheckIfAllowed(NewID)!=False):
+        if(CheckIfAllowed(NewID)!=-1):
             Allowed.remove(NewID)
         else:
             Allowed.append(NewID)
@@ -50,7 +50,7 @@ def Output():
 def Input(Id,Input):
     global State
     print(str(CheckIfAllowed(Id)))
-    if(CheckIfAllowed(Id)!=False):
+    if(CheckIfAllowed(Id)!=-1):
         if(Input=="1"):
             SwitchState(1)
         if(Input=="0"):
