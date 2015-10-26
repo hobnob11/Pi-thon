@@ -67,7 +67,7 @@ def PublicInput(Input):
         return "Access Denied"
 
 @app.route('/E2Input/<Id>/<Input>')
-def Input(Id,Input):
+def E2Input(Id,Input):
     global State
     if(CheckIfAllowed(str(request.remote_addr) + str(Id))!=-1):
         if(Input=="1"):
@@ -82,7 +82,7 @@ def Input(Id,Input):
         return "Access Denied"
 
 @app.route('/Input/<Input>')
-def Input2(Input):
+def Input(Input):
     global State
     global Requests
     if(CheckIfAllowed(request.remote_addr)!=-1):
