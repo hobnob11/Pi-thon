@@ -27,7 +27,7 @@ def CheckIfAllowed(A):
 def index():
     #if the incomming request is on the local network
     if(str(request.remote_addr)[:10] == "192.168.1."):
-        return render_template("admin.html")
+        return render_template("admin.html",Allowed = Allowed)
     else:
         return render_template("index.html")
 
@@ -39,7 +39,7 @@ def ADMIN(NewID):
             Allowed.remove(NewID)
         else:
             Allowed.append(NewID)
-        return render_template("admin.html",Allowed)
+        return render_template("admin.html",Allowed = Allowed)
 
 @app.route('/Output')
 def Output():
