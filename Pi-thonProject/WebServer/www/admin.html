@@ -14,6 +14,12 @@
                 <th>Remove</th>
             </thead>
             <tbody>
+                {% for t in Requested %}
+                <tr>
+                    <td>{{ t }}</td>
+                    <td><a href="/ADMIN/{{t}}" class="btn btn-success" role="button">Add</a></td>
+                </tr>
+                {% endfor %}
                 {% for t in Allowed %}
                 <tr>
                     <td>{{ t }}</td>
