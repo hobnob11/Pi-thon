@@ -7,7 +7,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(5,GPIO.OUT)
 
 State = 0
-Allowed = [0]
+Allowed = [0,1]
 
 def SwitchState(A):
     global State
@@ -19,9 +19,9 @@ def CheckIfAllowed(A):
     try:
         index = Allowed.index(A)
     except ValueError:
-        return False
-    else:
         return True
+    else:
+        return False
 
 
 
