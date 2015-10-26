@@ -46,7 +46,7 @@ def Input(Id,Input):
         SwitchState(1)
     if(Input=="0"):
         SwitchState(0)
-    return str(State) + "   " + str(Statuu)
+    return str(State) + "   " + str(Input)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0',port=80)
