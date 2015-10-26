@@ -8,12 +8,19 @@
 <body>
     <div class="container">
         <h1>Hi me :D</h1>
-        <table>
-            {% for t in Allowed %}
-            <tr>
-                <td>{{ t }}</td>
-            </tr>
-            {% endfor %}
+        <table class="table table-hover">
+            <thead>
+                <th>ID</th>
+                <th>Remove</th>
+            </thead>
+            <tbody>
+                {% for t in Allowed %}
+                <tr>
+                    <td>{{ t }}</td>
+                    <td><a href="/ADMIN/{{t}}" class="btn btn-danger" role="button">remove</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
     </div>
 </body>
