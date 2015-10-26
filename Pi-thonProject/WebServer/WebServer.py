@@ -8,7 +8,7 @@ GPIO.setup(5,GPIO.OUT)
 
 State = 0
 Allowed = ["Public"]
-
+Requests = []
 def SwitchState(A):
     global State
     State = A
@@ -58,6 +58,7 @@ def Input(Id,Input):
         return str(State) + "   " + str(Input)
     else:
         return "Access Denied"
+        
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0',port=80)
