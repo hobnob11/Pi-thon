@@ -21,9 +21,7 @@ def CheckIfAllowed(A):
     except ValueError:
         return False
     else:
-        return True
-
-
+        return index
 
 @app.route('/')
 def index():
@@ -32,6 +30,16 @@ def index():
         return render_template("admin.html")
     else:
         return render_template("index.html")
+
+@app.route('/ADMIN/<NewID>')
+def ADMIN(NewID):
+    global Allowed
+    if(str(request.remote_addr)[:10] == "192.168.1."):
+        if(CheckIfAllowed(NewID)!=False):
+            Allowed.remove(NewID)
+        else:
+            Allowed.append(NewID)
+        return render_template("admin.html")
 
 @app.route('/Output')
 def Output():
@@ -42,11 +50,14 @@ def Output():
 def Input(Id,Input):
     global State
     print(str(CheckIfAllowed(Id)))
-    if(Input=="1"):
-        SwitchState(1)
-    if(Input=="0"):
-        SwitchState(0)
-    return str(State) + "   " + str(Input)
+    if(CheckIfAllowed(Id)!=False):
+        if(Input=="1"):
+            SwitchState(1)
+        if(Input=="0"):
+            SwitchState(0)
+        return str(State) + "   " + str(Input)
+    else:
+        return "Access Denied"
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0',port=80)
