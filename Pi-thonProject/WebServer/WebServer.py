@@ -36,7 +36,7 @@ def CheckIfRequested(A):
 def index():
     #if the incomming request is on the local network
     if(str(request.remote_addr)[:10] == "192.168.1."):
-        return render_template("admin.html",Allowed = Allowed,Requested = Requested)
+        return render_template("admin.html",Allowed = Allowed,Requests = Requests)
     else:
         return render_template("index.html")
 
